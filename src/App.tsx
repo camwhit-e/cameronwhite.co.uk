@@ -1,5 +1,18 @@
+import Wrapper from "./elements/Wrapper";
+import IndexContainer from "./pages/IndexContainer";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <IndexContainer />,
+    },
+]);
+
 export default () => (
-    <div className={'bg-zinc-950 text-zinc-200'}>
-        Hello World
+    <div className={'text-zinc-200'}>
+        <Wrapper>
+            <RouterProvider router={router} />
+        </Wrapper>
     </div>
 );
