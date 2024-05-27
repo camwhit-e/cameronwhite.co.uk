@@ -5,7 +5,7 @@ import { faEye, faPaintRoller, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default () => (
     <div className={'flex h-screen'}>
-        <div className="max-w-screen-2xl p-4 lg:mx-16 my-auto text-center lg:text-left">
+        <div className="max-w-screen-2xl my-[18rem] text-center lg:text-left">
             <h1 className="mb-8 lg:mb-4 text-4xl font-extrabold md:text-5xl lg:text-6xl">
                 Hello, I&apos;m Cameron
             </h1>

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListDots } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from './Sidebar';
 
-interface Props { 
+interface Props {
     children: React.ReactNode;
 }
 
@@ -22,10 +22,8 @@ export default ({ children }: Props) => {
                     <FontAwesomeIcon icon={faListDots} fixedWidth />
                 </button>
             )}
-            {open && (
-                <Sidebar setOpen={setOpen} />
-            )}
-            <div className={classNames('p-4 z-50', open && 'ml-16')}>
+            {open && <Sidebar setOpen={setOpen} />}
+            <div className={classNames('p-4 lg:pl-32 lg:pr-16 lg:pt-16 z-40')}>
                 {children}
             </div>
         </div>

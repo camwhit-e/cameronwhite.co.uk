@@ -1,12 +1,17 @@
 import NotFound from "./pages/NotFound"
 import Wrapper from "./elements/Wrapper";
 import IndexContainer from "./pages/IndexContainer";
+import ProjectsContainer from "./pages/projects/ProjectsContainer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <IndexContainer />,
+    },
+    {
+        path: '/projects',
+        element: <ProjectsContainer />
     },
     {
         path: '*',
