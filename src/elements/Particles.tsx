@@ -1,14 +1,16 @@
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import ParticlesJS, { initParticlesEngine } from "@tsparticles/react";
 import {
   type ISourceOptions,
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
+import classNames from "classnames";
 
-export default () => {
+export default function Particles () {
   const [init, setInit] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -18,9 +20,15 @@ export default () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (init) {
+      setLoaded(true);
+    }
+  }, [init]);
+
   const options: ISourceOptions = useMemo(
     () => ({
-      fpsLimit: 60,
+      fpsLimit: 100,
       particles: {
         color: {
           value: "#ffffff",
@@ -59,12 +67,12 @@ export default () => {
 
   if (init) {
     return (
-      <Particles
-        className={'z-0'}
+      <ParticlesJS
         options={options}
+        className={classNames('z-0 transition-opacity duration-1000 ease-in', loaded ? 'opacity-100' : 'opacity-10')}
       />
     );
   }
 
   return <></>;
-};
+}

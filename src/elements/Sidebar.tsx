@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faHome, faShapes } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faHome, faPencilSquare, faShapes } from "@fortawesome/free-solid-svg-icons";
 import { Dispatch, SetStateAction } from "react";
 import Tooltip from "./Tooltip";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import classNames from "classnames";
 
 interface Props {
     setOpen: Dispatch<SetStateAction<boolean>>;
@@ -15,14 +16,28 @@ export default function Sidebar ({ setOpen }: Props) {
                 <ul className="h-full font-medium text-zinc-400">
                     <li className={'h-full flex flex-col flex-shrink-0'}>
                         <Tooltip content={'Home'} placement={'right'}>
-                            <Link to={'/'} className="flex items-center justify-center">
+                            <NavLink
+                                to={'/'}
+                                className={({ isActive }) => classNames('flex items-center justify-center', isActive && 'text-blue-400')}
+                            >
                                 <FontAwesomeIcon icon={faHome} className={'w-5 h-5 transition hover:text-zinc-200 duration-200 py-4'} />
-                            </Link>
+                            </NavLink>
                         </Tooltip>
                         <Tooltip content={'Projects'} placement={'right'}>
-                            <Link to={'/projects'} className="flex items-center justify-center">
+                            <NavLink
+                                to={'/projects'}
+                                className={({ isActive }) => classNames('flex items-center justify-center', isActive && 'text-blue-400')}
+                            >
                                 <FontAwesomeIcon icon={faShapes} className={'w-5 h-5 transition hover:text-zinc-200 duration-200 py-4'} />
-                            </Link>
+                            </NavLink>
+                        </Tooltip>
+                        <Tooltip content={'Blog Posts'} placement={'right'}>
+                            <NavLink
+                                to={'/posts'}
+                                className={({ isActive }) => classNames('flex items-center justify-center', isActive && 'text-blue-400')}
+                            >
+                                <FontAwesomeIcon icon={faPencilSquare} className={'w-5 h-5 transition hover:text-zinc-200 duration-200 py-4'} />
+                            </NavLink>
                         </Tooltip>
                         <div className="mt-auto flex items-center justify-center" onClick={() => setOpen(false)}>
                             <FontAwesomeIcon icon={faChevronLeft} className={'w-5 h-5 transition hover:text-zinc-200 duration-200 py-4'} />

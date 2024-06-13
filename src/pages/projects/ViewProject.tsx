@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import Tooltip from "../../elements/Tooltip";
 
 interface Stats {
     stars?: number;
@@ -85,13 +86,15 @@ export default function ViewProject () {
         <Wrapper>
             <Header title={project.title} items={['Projects', project.title]}/>
             <div className={'text-gray-400 text-lg w-full'}>
-                <div className={'inline-flex'}>
+                <div className={'inline-flex mb-6'}>
                     <Link to={'/projects'}>
-                        <FontAwesomeIcon
-                            size={'xl'}
-                            icon={faArrowCircleLeft}
-                            className={'mx-4 mt-[0.65rem] text-blue-400'}
-                        />
+                        <Tooltip content={'Return to projects'}>
+                            <FontAwesomeIcon
+                                size={'xl'}
+                                icon={faArrowCircleLeft}
+                                className={'mx-4 mt-[0.65rem] text-blue-400 hover:text-blue-200 transition duration-300'}
+                            />
+                        </Tooltip>
                     </Link>
                     <h3 className={'text-2xl lg:text-4xl font-semibold text-white'}>
                         Project Summary
@@ -122,7 +125,7 @@ export default function ViewProject () {
                                 </div>
                             )}
                             <div>
-                                <h3 className={'text-2xl lg:text-4xl text-white font-semibold'}>
+                                <h3 className={'text-2xl lg:text-4xl text-white font-semibold my-4'}>
                                     {section.title}
                                 </h3>
                                 <Markup content={section.content} />

@@ -9,11 +9,13 @@ interface Props {
     color?: string | undefined;
 }
 
-export default ({ text, icon, color }: Props) => (
-    <div className={'flex items-center w-full max-w-xs p-4 text-gray-500 rounded-lg bg-slate-800'}>
-    <div className={classNames(color, 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg')}>
-        <FontAwesomeIcon icon={icon} />
+const Toast = ({ text, icon, color }: Props) => (
+    <div className={'flex items-center w-full max-w-sm p-4 text-gray-400 rounded-lg bg-slate-800'}>
+        <div className={classNames(color, 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg')}>
+            <FontAwesomeIcon icon={icon} />
+        </div>
+        <div className={'ms-3 text-sm font-normal'}>{text}</div>
     </div>
-    <div className={'ms-3 text-sm font-normal'}>{text}</div>
-</div>
-)
+);
+
+export default Toast;

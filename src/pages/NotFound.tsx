@@ -26,7 +26,7 @@ export default function NotFound() {
                     <div className={'mt-10 flex justify-center'}>
                         <Toast
                             icon={faInfoCircle}
-                            color={'text-blue-700 bg-blue-100'}
+                            color={'text-gray-200 bg-blue-600'}
                             text={<>Press the <FontAwesomeIcon icon={faHome} /> icon to return.</>}
                         />
                     </div>

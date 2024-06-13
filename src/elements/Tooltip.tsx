@@ -40,7 +40,7 @@ const arrowSides: Record<Side, string> = {
     left: 'top-0 right-[-6px]',
 };
 
-export default ({ children, ...props }: Props) => {
+const Tooltip = ({ children, ...props }: Props) => {
     const arrowEl = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
 
@@ -117,3 +117,5 @@ export default ({ children, ...props }: Props) => {
         </>
     );
 };
+
+export default Tooltip;

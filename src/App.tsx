@@ -1,4 +1,7 @@
+import './assets/app.module.css';
 import NotFound from "./pages/NotFound"
+import PostList from "./pages/blog/PostList";
+import { AnimatePresence } from "framer-motion";
 import IndexContainer from "./pages/IndexContainer";
 import ViewProject from "./pages/projects/ViewProject";
 import ProjectList from "./pages/projects/ProjectList";
@@ -18,16 +21,23 @@ const router = createBrowserRouter([
         element: <ViewProject />
     },
     {
+        path: '/posts',
+        element: <PostList />
+    },
+    {
+        path: '/posts/:id',
+        element: <PostList />
+    },
+    {
         path: '*',
         element: <NotFound />,
     },
 ]);
 
-export default function App () {
+const App = () => (
+    <AnimatePresence>
+        <RouterProvider router={router} />
+    </AnimatePresence>
+);
 
-    return (
-        <div className={'text-zinc-200'}>
-                <RouterProvider router={router} />
-        </div>
-    );
-}
+export default App;
