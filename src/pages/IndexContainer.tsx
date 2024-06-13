@@ -10,7 +10,7 @@ const IndexContainer = () => (
         <div className={'flex'}>
             <Particles />
             <div className="max-w-screen-2xl my-[18rem] text-center lg:text-left">
-                <h1 className="mb-8 lg:mb-4 text-4xl font-extrabold md:text-5xl lg:text-6xl">
+                <h1 className="mb-8 lg:mb-4 text-4xl font-extrabold md:text-5xl lg:text-6xl text-gray-200">
                     Hello, I&apos;m&nbsp;
                     <span className={'text-blue-400'}>Cameron</span>
                 </h1>

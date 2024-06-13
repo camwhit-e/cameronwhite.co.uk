@@ -27,7 +27,7 @@ const ProjectList = () => (
                                 <img src={project.icon} className={'w-32 h-32 lg:w-64 lg:h-64 rounded-full p-4'} />
                             </div>
                             <div className={'text-center'}>
-                                <h2 className={'text-xl lg:text-3xl font-semibold'}>
+                                <h2 className={'text-xl lg:text-3xl font-semibold text-gray-200'}>
                                     {project.title}
                                 </h2>
                                 <p className={'text-sm md:text-base text-gray-400 mt-1'}>
