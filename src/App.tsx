@@ -1,7 +1,7 @@
 import NotFound from "./pages/NotFound"
-import Wrapper from "./elements/Wrapper";
 import IndexContainer from "./pages/IndexContainer";
-import ProjectsContainer from "./pages/projects/ProjectsContainer";
+import ViewProject from "./pages/projects/ViewProject";
+import ProjectList from "./pages/projects/ProjectList";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -11,7 +11,11 @@ const router = createBrowserRouter([
     },
     {
         path: '/projects',
-        element: <ProjectsContainer />
+        element: <ProjectList />
+    },
+    {
+        path: '/projects/:id',
+        element: <ViewProject />
     },
     {
         path: '*',
@@ -19,10 +23,11 @@ const router = createBrowserRouter([
     },
 ]);
 
-export default () => (
-    <div className={'text-zinc-200'}>
-        <Wrapper>
-            <RouterProvider router={router} />
-        </Wrapper>
-    </div>
-);
+export default function App () {
+
+    return (
+        <div className={'text-zinc-200'}>
+                <RouterProvider router={router} />
+        </div>
+    );
+}
